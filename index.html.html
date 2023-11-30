@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>allforone.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+        html,
+        body {
+            overflow-x: hidden;
+            height: 100%;
+        }
+
+        body {
+            background: #fff;
+            padding: 0;
+            margin: 0;
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .header {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
+            box-shadow: none;
+            background-color: #FC466B;
+            position: fixed;
+            height: 60px !important;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .main {
+            margin: 0 auto;
+            display: block;
+            height: 100%;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+
+    <div id='center' class="main center">
+
+
+
+        <h1 style="position: center;">Hello there</h1>
+        <input type="text" id="input">
+        <input type="submit" id="submit" onclick="output()">
+    </div>
+    <p id="out"></p>
+    <script>
+        function output() {
+            let message = document.getElementById('out');
+            message.innerHTML = '';
+            let input = document.getElementById('input').value;
+            try {
+                if (input.trim() == "")
+                    throw "is empty";
+                if (input > 5)
+                    throw 'high';
+                if (input < 5)
+                    throw 'low';
+                if (isNaN(input))
+                    throw 'is not a number';
+                input = Number(input);
+            } catch (err) {
+                message.innerHTML = "Output " + err;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
